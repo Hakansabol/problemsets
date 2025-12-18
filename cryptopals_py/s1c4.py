@@ -11,4 +11,3 @@ if __name__ == "__main__":
             o.append(n.xorwith(xo).str())
     for i in range(30):
         print(etaoinshrdlu(o, i))
-    print()

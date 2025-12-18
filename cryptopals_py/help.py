@@ -10,6 +10,8 @@ class numb:
             self.val = "".join([format(base64key.find(a), '06b') for a in val])
         if (typ == "bin"):
             self.val = val
+        if (typ == "str"):
+            self.val = "".join([format((ord(a)), '08b') for a in val])
 
     def hex(self):
         return "".join([hexkey[int(self.val[i*4:i*4+4], 2)] for i in range(len(self.val) // 4)])
@@ -80,3 +82,20 @@ def etaoinshrdlu(objs, ind: int = 0):
     enl = [[score(objs[b]), objs[b]] for b in range(len(objs))]
     enl = sorted(enl, reverse=True)
     return enl[ind][1]
+
+
+def hamming_distance(l: numb, r: numb):
+    lb = l.bin()
+    rb = r.bin()
+    if len(lb) != len(rb):
+        return -1
+    return sum([1 for i in range(len(lb)) if lb[i] != rb[i]])
+
+
+# unit tests
+if __name__ == "__main__":
+    t = input()
+    if t == "hamming_distance":
+        s1 = input()
+        s2 = input()
+        print(hamming_distance(numb(s1, 'str'), numb(s2, 'str')))
