@@ -1,5 +1,5 @@
 hexkey: str = "0123456789abcdef"
-base64key: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
+base64key: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
 
 class numb:
@@ -70,12 +70,13 @@ freq = {'E': 12.0,
         'X': 0.17,
         'Q': 0.11,
         'J': 0.10,
-        'Z': 0.07
+        'Z': 0.07,
+        ' ': 2000,
         }
 
 
 def score(s: str):
-    return sum([freq[a.upper()] for a in s if a.upper() in freq])
+    return sum([freq[a.upper()] if a.upper() in freq else -8 for a in s])
 
 
 def etaoinshrdlu(objs, ind: int = 0):
