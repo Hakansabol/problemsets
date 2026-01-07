@@ -71,18 +71,19 @@ freq = {'E': 12.0,
         'Q': 0.11,
         'J': 0.10,
         'Z': 0.07,
-        ' ': 2000,
+        ' ': 0,
         }
 
 
 def score(s: str):
-    return sum([freq[a.upper()] if a.upper() in freq else -8 for a in s])
+    return sum([freq[a.upper()] if a.upper() in freq else -1 for a in s])
+    return sum([freq[a.upper()] if a.upper() in freq else (0 if not a.isascii() else 0) for a in s])
 
 
 def etaoinshrdlu(objs, ind: int = 0):
     enl = [[score(objs[b]), objs[b]] for b in range(len(objs))]
     enl = sorted(enl, reverse=True)
-    return enl[ind][1]
+    return [enl[i][1] for i in range(0, ind)]
 
 
 def hamming_distance(l: numb, r: numb):
