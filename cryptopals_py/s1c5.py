@@ -1,5 +1,5 @@
 # Repeating-key XOR
-from help import numb, hexkey, base64key, etaoinshrdlu
+from help import numb, hexkey, base64key
 
 
 def repeating_key_xor(s: numb, k: numb):
