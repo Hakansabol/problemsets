@@ -46,6 +46,13 @@ impl State {
     fn process(&mut self, message: Message) {
         // TODO: Create a match expression to process the different message
         // variants using the methods defined above.
+        match message {
+            Message::Resize{ width: w, height: h } => { self.width = w; self.height = h; },
+            Message::Move(p) => { self.position = p; },
+            Message::Echo(s) => self.message = s,
+            Message::ChangeColor(r,g,b) => self.color = (r,g,b),
+            Message::Quit => self.quit = true,
+        }
     }
 }
 

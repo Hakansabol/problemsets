@@ -1,3 +1,6 @@
 Cargo.lock
 target/
 .vscode/
+
+# shut up about the solutions, telescope
+solutions/
