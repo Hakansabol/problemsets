@@ -27,6 +27,23 @@ impl Number {
         out
     }
 
+    pub fn xorwith(&self, other: &Number) -> Number {
+        let self_vec = &self.data;
+        let other_vec = &other.data;
+        let mut out: Vec<bool> = vec![];
+        let mut idx: usize = 0;
+        let other_size: usize = other_vec.len();
+
+        for a in self_vec.iter() {
+            let nv = a ^ other_vec[idx];
+            idx = (idx + 1) % other_size;
+            out.push(nv);
+        }
+        Number {
+            data: out
+        }
+    }
+
     pub fn bit_len(&self) -> usize {
         self.data.len()
     }
@@ -38,12 +55,29 @@ impl Number {
 
     pub fn to_hex(&self) -> String {
         let bin_data = self.get_binary_data(4);
-        bin_data.iter().map(|x| HEXKEY.as_bytes()[*x as usize] as char).collect::<String>()
+        bin_data
+            .iter()
+            .map(|x| HEXKEY.as_bytes()[*x as usize] as char)
+            .collect::<String>()
     }
 
     pub fn to_base64(&self) -> String {
         let bin_data = self.get_binary_data(6);
-        bin_data.iter().map(|x| BASE64KEY.as_bytes()[*x as usize] as char).collect::<String>()
+        bin_data
+            .iter()
+            .map(|x| BASE64KEY.as_bytes()[*x as usize] as char)
+            .collect::<String>()
+    }
+
+    pub fn to_binary(&self) -> String {
+        self.data
+            .iter()
+            .map(|x| if *x { '1' } else { '0' })
+            .collect::<String>()
+    }
+
+    pub fn from_vec(d: Vec<bool>) -> Self {
+        Number { data: d }
     }
 
     pub fn from_string(s: &String) -> Self {
@@ -75,7 +109,8 @@ impl Number {
     pub fn from_base64(s: &String) -> Self {
         let mut d: Vec<bool> = vec![];
         for c in s.chars() {
-            let mut ascii = (BASE64KEY.find(c).expect("bad base64 input") as u8).reverse_bits() >> 2;
+            let mut ascii =
+                (BASE64KEY.find(c).expect("bad base64 input") as u8).reverse_bits() >> 2;
             for _i in 0..6 {
                 d.push(ascii % 2 == 1);
                 ascii >>= 1;

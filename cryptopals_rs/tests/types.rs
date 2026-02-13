@@ -22,4 +22,13 @@ mod tests {
         let n2 = Number::from_base64(&after);
         assert_eq!(n2.to_hex(), before);
     }
+
+    #[test]
+    fn fixed_xor() {
+        let left = String::from("1c0111001f010100061a024b53535009181c");
+        let right = String::from("686974207468652062756c6c277320657965");
+        let n1 = Number::from_hex(&left);
+        let n2 = Number::from_hex(&right);
+        assert_eq!(n1.xorwith(&n2).to_hex(), String::from("746865206b696420646f6e277420706c6179"));
+    }
 }
