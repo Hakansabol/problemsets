@@ -7,7 +7,6 @@ mod tests {
         let s = String::from("this is my favorite&string");
         let n = Number::from_string(&s);
         let l = n.bit_len();
-        println!("{l}");
         assert_eq!(s, n.to_string());
     }
 

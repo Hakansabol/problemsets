@@ -39,9 +39,7 @@ impl Number {
             idx = (idx + 1) % other_size;
             out.push(nv);
         }
-        Number {
-            data: out
-        }
+        Number { data: out }
     }
 
     pub fn bit_len(&self) -> usize {
@@ -80,7 +78,7 @@ impl Number {
         Number { data: d }
     }
 
-    pub fn from_string(s: &String) -> Self {
+    pub fn from_string(s: &str) -> Self {
         let mut d: Vec<bool> = vec![];
         for c in s.chars() {
             let mut ascii = (c as u8).reverse_bits();
@@ -93,7 +91,7 @@ impl Number {
         Self { data: d }
     }
 
-    pub fn from_hex(s: &String) -> Self {
+    pub fn from_hex(s: &str) -> Self {
         let mut d: Vec<bool> = vec![];
         for c in s.chars() {
             let mut ascii = (HEXKEY.find(c).expect("bad hex input") as u8).reverse_bits() >> 4;
@@ -106,7 +104,7 @@ impl Number {
         Self { data: d }
     }
 
-    pub fn from_base64(s: &String) -> Self {
+    pub fn from_base64(s: &str) -> Self {
         let mut d: Vec<bool> = vec![];
         for c in s.chars() {
             let mut ascii =
@@ -114,6 +112,21 @@ impl Number {
             for _i in 0..6 {
                 d.push(ascii % 2 == 1);
                 ascii >>= 1;
+            }
+        }
+
+        Self { data: d }
+    }
+
+    pub fn from_binary(s: &str) -> Self {
+        let mut d: Vec<bool> = vec![];
+        for c in s.chars() {
+            if c == '0' {
+                d.push(false);
+            } else if c == '1' {
+                d.push(true);
+            } else {
+                panic!("Bad binary input!");
             }
         }
 
