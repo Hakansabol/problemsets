@@ -1,3 +1,5 @@
+use crate::Number;
+
 fn score_char(c: char) -> f32 {
     if (c < 'a' || c > 'z') { return 0.0; }
     let c = (c as u32 - ('a' as u32)) as u8;
@@ -33,3 +35,30 @@ pub fn score(t: &str) -> f32 {
     let t = t.to_lowercase();
     t.chars().into_iter().map(|x| score_char(x)).sum()
 }
+
+pub fn try_single_xor(n: Number) {
+    let mut outs = vec![];
+
+    for key in 0u8..=255u8 {
+        let keystr = format!("{:0>8b}", key);
+        let nv = Number::from_binary(&keystr);
+        let xored = n.xorwith(&nv);
+        outs.push(xored);
+    }
+}
+
+pub fn order_by_score(s: Vec<Number>, top: i32) {
+    let mut strs = vec![];
+
+    for a in s {
+        let out = a.to_string();
+        strs.push((score(&out), out));
+    }
+    strs.sort_by(|a, b| a.0.partial_cmp(&b.0).expect("bad compare"));
+    let ans: Vec<&String> = strs.iter().map(|x| &x.1).rev().collect();
+    for a in 0..10 {
+        let c = ans[a];
+        println!("{c:?}"); // prints ansi escapes
+    }
+}
+
