@@ -36,7 +36,7 @@ pub fn score(t: &str) -> f32 {
     t.chars().into_iter().map(|x| score_char(x)).sum()
 }
 
-pub fn try_single_xor(n: Number) {
+pub fn try_single_xor(n: Number) -> Vec<Number> {
     let mut outs = vec![];
 
     for key in 0u8..=255u8 {
@@ -45,8 +45,11 @@ pub fn try_single_xor(n: Number) {
         let xored = n.xorwith(&nv);
         outs.push(xored);
     }
+
+    outs
 }
 
+// TODO: make in-place
 pub fn order_by_score(s: Vec<Number>, top: i32) {
     let mut strs = vec![];
 
@@ -61,4 +64,3 @@ pub fn order_by_score(s: Vec<Number>, top: i32) {
         println!("{c:?}"); // prints ansi escapes
     }
 }
-

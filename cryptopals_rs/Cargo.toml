@@ -8,3 +8,6 @@ edition = "2024"
 [[bin]]
 name = "s1c3"
 path = "src/challenges/s1c3.rs"
+[[bin]]
+name = "s1c4"
+path = "src/challenges/s1c4.rs"
