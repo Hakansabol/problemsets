@@ -10,6 +10,9 @@ fn main() {
         nums.append(&mut new_vecs);
     }
 
-    let outputs = order_by_score(nums, 10);
-    println!("{outputs:?}")
+    let outputs = order_by_score(nums);
+    for i in 0..10 {
+        let nx = &outputs[i];
+        println!("{nx:?}")
+    }
 }

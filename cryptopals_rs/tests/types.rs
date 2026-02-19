@@ -6,14 +6,16 @@ mod tests {
     fn to_string_and_back() {
         let s = String::from("this is my favorite&string");
         let n = Number::from_string(&s);
-        let l = n.bit_len();
         assert_eq!(s, n.to_string());
     }
 
     #[test]
     fn hex_to_64() {
-        let before = String::from("49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d");
-        let after = String::from("SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t");
+        let before = String::from(
+            "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d",
+        );
+        let after =
+            String::from("SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t");
 
         let n = Number::from_hex(&before);
         assert_eq!(n.to_base64(), after);
@@ -28,6 +30,16 @@ mod tests {
         let right = String::from("686974207468652062756c6c277320657965");
         let n1 = Number::from_hex(&left);
         let n2 = Number::from_hex(&right);
-        assert_eq!(n1.xorwith(&n2).to_hex(), String::from("746865206b696420646f6e277420706c6179"));
+        assert_eq!(
+            n1.xorwith(&n2).to_hex(),
+            String::from("746865206b696420646f6e277420706c6179")
+        );
+    }
+
+    #[test]
+    fn hamming_distance_37() {
+        let left = Number::from_string("this is a test");
+        let right = Number::from_string("wokka wokka!!!");
+        assert_eq!(left.hamming_distance(&right), 37);
     }
 }

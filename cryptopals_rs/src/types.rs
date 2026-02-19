@@ -132,4 +132,27 @@ impl Number {
 
         Self { data: d }
     }
+
+    pub fn hamming_distance(&self, n: &Number) -> i32 {
+        let this = &self.to_binary();
+        let other = n.to_binary();
+
+        let thisl = this.len();
+        let otherl = other.len();
+        if thisl != otherl {
+            panic!("Hamming distance failure: strings of differing lengths: {thisl} vs {otherl}")
+        }
+
+        let mut this = this.chars();
+        let mut other = other.chars();
+
+        let mut count = 0i32;
+        for _i in 0..thisl {
+            if this.next() != other.next() {
+                count += 1;
+            }
+        }
+
+        count
+    }
 }

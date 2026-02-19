@@ -1,7 +1,7 @@
 use crate::Number;
 
 fn score_char(c: char) -> f32 {
-    if (c < 'a' || c > 'z') { return 0.0; }
+    if c < 'a' || c > 'z' { return 0.0; }
     let c = (c as u32 - ('a' as u32)) as u8;
  if c==0 {8.12} else
  if c==1 {1.49} else
@@ -50,7 +50,7 @@ pub fn try_single_xor(n: Number) -> Vec<Number> {
 }
 
 // TODO: make in-place
-pub fn order_by_score(s: Vec<Number>, top: i32) {
+pub fn order_by_score(s: Vec<Number>) -> Vec<String> {
     let mut strs = vec![];
 
     for a in s {
@@ -58,9 +58,6 @@ pub fn order_by_score(s: Vec<Number>, top: i32) {
         strs.push((score(&out), out));
     }
     strs.sort_by(|a, b| a.0.partial_cmp(&b.0).expect("bad compare"));
-    let ans: Vec<&String> = strs.iter().map(|x| &x.1).rev().collect();
-    for a in 0..10 {
-        let c = ans[a];
-        println!("{c:?}"); // prints ansi escapes
-    }
+    let ans: Vec<String> = strs.iter().map(|x| (&x.1).to_owned()).rev().collect();
+    ans
 }
