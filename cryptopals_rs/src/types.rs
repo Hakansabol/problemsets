@@ -1,3 +1,5 @@
+use std::iter;
+
 const HEXKEY: &str = "0123456789abcdef";
 const BASE64KEY: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -154,5 +156,55 @@ impl Number {
         }
 
         count
+    }
+
+    // This function is not safe when length of string representation is not divisible by block_size
+    pub fn transpose(&mut self, block_size: usize) -> &mut Self {
+        let block_count = block_size;
+        let mut transparr: Vec<String> = vec![String::from(""); block_count];
+        let mut ptr = 0usize..block_size;
+        for a in self.to_string().bytes() {
+            let nptr: usize = ptr.next().unwrap_or_else(|| {
+                ptr = 0usize..block_size;
+                ptr.next().expect("SHOULD BE ZERO!")
+            });
+            transparr[nptr].push(a as char);
+        }
+        let mut out = String::from("");
+        for a in transparr {
+            out.push_str(&a);
+        }
+        self.data = Number::from_string(&out).data; // TODO: don't copy the data lol
+
+        self
+    }
+
+    pub fn from_transposed(d: Vec<String>) -> Self {
+        let iters: Vec<Vec<u8>> = d.iter().map(|x| x.bytes().collect()).collect();
+        let mut out = String::from("");
+
+        for a in 0..(&iters)[0].len() {
+            for b in &iters {
+                if a >= b.len() {
+                    continue;
+                }
+                out.push(b[a] as char);
+            }
+        }
+
+        Self::from_string(&out)
+    }
+
+    pub fn transposed(&self, block_count: usize) -> Vec<String> {
+        let mut out: Vec<String> = vec![String::from(""); block_count];
+        let mut ptr = 0usize..block_count;
+        for a in self.to_string().bytes() {
+            let nptr: usize = ptr.next().unwrap_or_else(|| {
+                ptr = 0usize..block_count;
+                ptr.next().expect("SHOULD BE ZERO!")
+            });
+            out[nptr].push(a as char);
+        }
+        out
     }
 }

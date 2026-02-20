@@ -42,4 +42,40 @@ mod tests {
         let right = Number::from_string("wokka wokka!!!");
         assert_eq!(left.hamming_distance(&right), 37);
     }
+
+    #[test]
+    fn transpose_small() {
+        let mut left = Number::from_string("123456789");
+        let right = Number::from_string("147258369");
+        let initial = Number::from_string("123456789");
+        
+        // transpose left
+        assert_eq!(left.transpose(3).to_string(), right.to_string()); 
+        // transpose left again,
+        // restoring the original.
+        assert_eq!(left.transpose(3).to_string(), initial.to_string()); 
+
+        let mut left = Number::from_string("123456");
+        let right = Number::from_string("123456");
+        // chain transposition
+        assert_eq!(left.transpose(3).transpose(2).to_string(), right.to_string()); 
+    }
+
+    #[test]
+    fn transpose_big() {
+        let long_string = "this text is long but not too long that it would be annoying to type out, because that would be too long. Unfortunately, the length is arbitrary and probably not divisible by the block size I choose oh no!";
+        let mut left = Number::from_string(long_string);
+        let right = Number::from_string(long_string);
+        
+        assert_eq!(left.transpose(5).transpose(41).to_string(), right.to_string());
+        assert_eq!(Number::from_transposed(left.transposed(7)).to_string(), right.to_string());
+    }
+
+    #[test]
+    fn transpose_and_back() {
+        let left = Number::from_string("123456789");
+        let transposed = left.transposed(3);
+        let right = Number::from_transposed(transposed);
+        assert_eq!(left.to_string(), right.to_string());
+    }
 }

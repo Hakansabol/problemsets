@@ -36,7 +36,7 @@ pub fn score(t: &str) -> f32 {
     t.chars().into_iter().map(|x| score_char(x)).sum()
 }
 
-pub fn try_single_xor(n: Number) -> Vec<Number> {
+pub fn try_single_xor(n: &Number) -> Vec<Number> {
     let mut outs = vec![];
 
     for key in 0u8..=255u8 {

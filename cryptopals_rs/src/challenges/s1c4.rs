@@ -6,7 +6,7 @@ fn main() {
 
     let mut nums: Vec<Number> = vec![];
     for a in opts {
-        let mut new_vecs: Vec<Number> = try_single_xor(a);
+        let mut new_vecs: Vec<Number> = try_single_xor(&a);
         nums.append(&mut new_vecs);
     }
 
