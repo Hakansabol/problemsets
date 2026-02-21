@@ -1,6 +1,7 @@
 use crate::Number;
 
 fn score_char(c: char) -> f32 {
+    if c == (' ') {return 1.00}
     if c < 'a' || c > 'z' { return 0.0; }
     let c = (c as u32 - ('a' as u32)) as u8;
  if c==0 {8.12} else
@@ -28,7 +29,7 @@ fn score_char(c: char) -> f32 {
  if c==22 {2.09} else
  if c==23 {0.17} else
  if c==24 {2.11} else
- if c==25 {0.07} else {0.0}
+ if c==25 {0.07} else {-0.5}
 }
 
 pub fn score(t: &str) -> f32 {

@@ -21,7 +21,17 @@ fn main() {
     keysize_opts.sort_by(|a, b| a.1.partial_cmp(&b.1).expect("bad compare"));
     println!("{keysize_opts:?}");
     for keysize in keysize_opts {
-        let blocks = 
+        let ks = keysize.0;
+        println!("KEYSIZE: {ks}");
+        let mut blocks = data.transposed(keysize.0 as usize);
+        let mut os: Vec<String> = vec![];
+        for mut a in blocks {
+            a = break_single_xor(&Number::from_string(&a));
+            os.push(a);
+        }
+        let out = Number::from_transposed(os);
+        let outs = out.to_string();
+        println!("{outs}");
     }
 }
 
