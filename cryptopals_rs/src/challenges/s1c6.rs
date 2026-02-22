@@ -20,10 +20,13 @@ fn main() {
 
     keysize_opts.sort_by(|a, b| a.1.partial_cmp(&b.1).expect("bad compare"));
     println!("{keysize_opts:?}");
+    let mut attempts = 0u32;
     for keysize in keysize_opts {
+        attempts += 1;
+        if attempts > 6 {break;}
         let ks = keysize.0;
         println!("KEYSIZE: {ks}");
-        let mut blocks = data.transposed(keysize.0 as usize);
+        let blocks = data.transposed(keysize.0 as usize);
         let mut os: Vec<String> = vec![];
         for mut a in blocks {
             a = break_single_xor(&Number::from_string(&a));

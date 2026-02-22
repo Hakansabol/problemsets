@@ -48,6 +48,11 @@ impl Number {
         self.data.len()
     }
 
+    // TODO: make this not terrible
+    pub fn to_bytes(&self) -> Vec<u8> {
+        self.get_binary_data(8)
+    }
+
     pub fn to_string(&self) -> String {
         let bin_data = self.get_binary_data(8);
         bin_data.iter().map(|x| *x as char).collect::<String>()
