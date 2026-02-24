@@ -85,6 +85,19 @@ impl Number {
         Number { data: d }
     }
 
+    pub fn from_bytes(v: &[u8]) -> Self {
+        let mut d: Vec<bool> = vec![];
+        for c in v {
+            let mut ascii = c.reverse_bits();
+            for _i in 0..8 {
+                d.push(ascii % 2 == 1);
+                ascii >>= 1;
+            }
+        }
+
+        Self { data: d }
+    }
+
     pub fn from_string(s: &str) -> Self {
         let mut d: Vec<bool> = vec![];
         for c in s.chars() {
