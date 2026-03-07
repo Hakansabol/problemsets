@@ -225,4 +225,12 @@ impl Number {
         }
         out
     }
+
+    pub fn pad(&self, bytes: usize) -> Number {
+        let mut cur = self.to_bytes();
+        for i in 0..(bytes - cur.len()) {
+            cur.push(b'\x04');
+        }
+        Number::from_bytes(&cur)
+    }
 }
