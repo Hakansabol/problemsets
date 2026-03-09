@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 openssl = "0.10.75"
+rand = "0.10.0"
 
 [[bin]]
 name = "s1c3"
