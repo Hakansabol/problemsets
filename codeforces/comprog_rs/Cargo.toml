@@ -8,3 +8,6 @@ edition = "2024"
 [[bin]]
 name="delsort"
 path="src/delsort.rs"
+[[bin]]
+name="sleepsort"
+path="src/sleepsort.rs"
