@@ -35,7 +35,7 @@ pub fn encrypt_aes_128_cbc(data: Number, key: &[u8], iv: &[u8]) -> Number {
 
         let cur_block = &data[l..r];
         let new_block = encrypt_aes_128_ecb(Number::from_bytes(cur_block), key, cur_last_block);
-        cur_last_block = &new_block.to_bytes();
+        mut cur_last_block = new_block.to_bytes();
         out.extend(new_block.to_bytes().iter());
     }
     Number::from_bytes(&out)
