@@ -1,0 +1,9 @@
+[package]
+name = "cses_rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+[[bin]]
+name="weird_algorithm"
+path="src/weird_algorithm.rs"
