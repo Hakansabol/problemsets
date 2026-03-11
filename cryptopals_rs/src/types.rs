@@ -1,5 +1,3 @@
-use std::iter;
-
 const HEXKEY: &str = "0123456789abcdef";
 const BASE64KEY: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
@@ -228,7 +226,7 @@ impl Number {
 
     pub fn pad(&self, bytes: usize) -> Number {
         let mut cur = self.to_bytes();
-        for i in 0..(bytes - cur.len()) {
+        for _i in 0..(bytes - cur.len()) {
             cur.push(b'\x04');
         }
         Number::from_bytes(&cur)

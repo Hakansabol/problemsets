@@ -1,8 +1,8 @@
 mod types;
-pub use types::Number;
+pub use types::*;
 
 mod utility;
-pub use utility::{order_by_score, score, try_single_xor};
+pub use utility::*;
 
 mod ciphers;
-pub use ciphers::decrypt_aes_128_ecb;
+pub use ciphers::*;
