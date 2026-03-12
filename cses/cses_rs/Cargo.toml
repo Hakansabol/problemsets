@@ -4,6 +4,25 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+
 [[bin]]
 name="weird_algorithm"
 path="src/weird_algorithm.rs"
+[[bin]]
+name="missing_number"
+path="src/missing_number.rs"
+[[bin]]
+name="repetitions"
+path="src/repetitions.rs"
+[[bin]]
+name="increasing_array"
+path="src/increasing_array.rs"
+[[bin]]
+name="permutations"
+path="src/permutations.rs"
+[[bin]]
+name="number_spiral"
+path="src/number_spiral.rs"
+[[bin]]
+name="two_knights"
+path="src/two_knights.rs"
