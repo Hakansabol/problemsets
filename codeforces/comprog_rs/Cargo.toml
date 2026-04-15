@@ -32,3 +32,12 @@ path="src/registration_system.rs"
 [[bin]]
 name="spreadsheets"
 path="src/spreadsheets.rs"
+[[bin]]
+name="67_xor"
+path="src/67_xor.rs"
+[[bin]]
+name="67_tree"
+path="src/67_tree.rs"
+[[bin]]
+name="67_counting"
+path="src/67_counting.rs"
