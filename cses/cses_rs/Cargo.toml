@@ -29,3 +29,15 @@ path="src/two_knights.rs"
 [[bin]]
 name="two_sets"
 path="src/two_sets.rs"
+[[bin]]
+name="trailing_zeros"
+path="src/trailing_zeros.rs"
+[[bin]]
+name="coin_piles"
+path="src/coin_piles.rs"
+[[bin]]
+name="palindrome_reorder"
+path="src/palindrome_reorder.rs"
+[[bin]]
+name="gray_code"
+path="src/gray_code.rs"
