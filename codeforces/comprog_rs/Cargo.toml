@@ -41,3 +41,6 @@ path="src/67_tree.rs"
 [[bin]]
 name="67_counting"
 path="src/67_counting.rs"
+[[bin]]
+name="simple_gcd_easy"
+path="src/simple_gcd_easy.rs"
