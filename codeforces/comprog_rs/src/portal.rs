@@ -9,22 +9,14 @@ mod template {
     pub fn to_string(vec:Vec<char>) -> String{return vec.iter().collect::<String>();}
 }
 
-use std::collections::HashMap;
-
 use template::*;
-//=========================================================
-//================== THE FUN BEGINS HERE ==================
-//=========================================================
 
 fn solve() {
-    let n = take_int();
-    let v1 = take_vector();
-    let v2 = take_vector();
 
-    let mut m = HashMap::new();
 }
 
 pub fn main() {
-    let t = take_int();
-    for _ in 0..t { solve(); }
+    for _ in 0..take_int() {
+        solve();
+    }
 }
