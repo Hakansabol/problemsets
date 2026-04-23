@@ -59,3 +59,6 @@ path="src/cinema_cashier.rs"
 [[bin]]
 name="portal"
 path="src/portal.rs"
+[[bin]]
+name="annoying_game"
+path="src/annoying_game.rs"
