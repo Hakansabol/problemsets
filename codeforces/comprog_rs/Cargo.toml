@@ -62,3 +62,9 @@ path="src/portal.rs"
 [[bin]]
 name="annoying_game"
 path="src/annoying_game.rs"
+[[bin]]
+name="thu"
+path="src/thu.rs"
+[[bin]]
+name="grid_covering"
+path="src/grid_covering.rs"
