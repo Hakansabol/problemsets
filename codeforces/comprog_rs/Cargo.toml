@@ -3,8 +3,6 @@ name = "comprog_rs"
 version = "0.1.0"
 edition = "2024"
 
-[dependencies]
-
 [[bin]]
 name="delsort"
 path="src/delsort.rs"
@@ -68,3 +66,9 @@ path="src/thu.rs"
 [[bin]]
 name="grid_covering"
 path="src/grid_covering.rs"
+[[bin]]
+name="time_display_stickers"
+path="src/time_display_stickers.rs"
+[[bin]]
+name="bench"
+path="src/bench.rs"
