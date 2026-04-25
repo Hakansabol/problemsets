@@ -58,6 +58,7 @@ path="src/cinema_cashier.rs"
 name="portal"
 path="src/portal.rs"
 [[bin]]
+<<<<<<< HEAD
 name="annoying_game"
 path="src/annoying_game.rs"
 [[bin]]
@@ -72,3 +73,6 @@ path="src/time_display_stickers.rs"
 [[bin]]
 name="bench"
 path="src/bench.rs"
+[[bin]]
+name="divisive_battle"
+path="src/divisive_battle.rs"
