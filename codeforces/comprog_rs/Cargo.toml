@@ -78,3 +78,6 @@ path="src/divisive_battle.rs"
 [[bin]]
 name="lost_soul"
 path="src/lost_soul.rs"
+[[bin]]
+name="retaliation"
+path="src/retaliation.rs"
