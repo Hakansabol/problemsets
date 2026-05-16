@@ -96,3 +96,12 @@ path="src/light_switches.rs"
 [[bin]]
 name="nastya_and_door"
 path="src/nastya_and_door.rs"
+[[bin]]
+name="marisa_steals_reimus_takeout"
+path="src/marisa_steals_reimus_takeout.rs"
+[[bin]]
+name="remilia_plays_sudoku"
+path="src/remilia_plays_sudoku.rs"
+[[bin]]
+name="cirno_and_number"
+path="src/cirno_and_number.rs"

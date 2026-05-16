@@ -10,15 +10,25 @@ mod template {
 }
 
 use template::*;
-//=========================================================
-//================== THE FUN BEGINS HERE ==================
-//=========================================================
 
 fn solve() {
-    //  TODO: CODE GOES HERE
+    let v = take_vector();
+    let (n, x, y, k) = (v[0], v[1], v[2], v[3]);
+
+    if n <= 3 {
+        println!("{}", 1);
+        return;
+    }
+
+    let l = std::cmp::min(x, y);
+    let r = std::cmp::max(x, y);
+
+    let dist = std::cmp::min(r - l, l + n - r);
+    println!("{}", dist + k);
 }
 
 pub fn main() {
-    let t = take_int();
-    for _ in 0..t { solve(); }
+    for _ in 0..take_int() {
+        solve();
+    }
 }

@@ -9,16 +9,31 @@ mod template {
     pub fn to_string(vec:Vec<char>) -> String{return vec.iter().collect::<String>();}
 }
 
+use std::collections::HashMap;
+
 use template::*;
-//=========================================================
-//================== THE FUN BEGINS HERE ==================
-//=========================================================
 
 fn solve() {
-    //  TODO: CODE GOES HERE
+    let n = take_int();
+    let v = take_vector();
+
+    let mut d = vec![0; 4];
+    for a in v {
+        d[a as usize] += 1;
+    }
+    let mut ans = d[0] + d[3];
+    let midl = std::cmp::min(d[1], d[2]);
+    ans += midl;
+    d[1] -= midl;
+    d[2] -= midl;
+    ans += d[2] / 3;
+    ans += d[1] / 3;
+
+    println!("{}", ans);
 }
 
 pub fn main() {
-    let t = take_int();
-    for _ in 0..t { solve(); }
+    for _ in 0..take_int() {
+        solve();
+    }
 }
