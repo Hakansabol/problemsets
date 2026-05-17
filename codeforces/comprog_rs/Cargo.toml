@@ -105,3 +105,13 @@ path="src/remilia_plays_sudoku.rs"
 [[bin]]
 name="cirno_and_number"
 path="src/cirno_and_number.rs"
+[[bin]]
+name="wonderful_contest"
+path="src/wonderful_contest.rs"
+[[bin]]
+name="artistic_balance_tree"
+path="src/artistic_balance_tree.rs"
+[[bin]]
+name="median_partition"
+path="src/median_partition.rs"
+>>>>>>> 2187125 (some)
