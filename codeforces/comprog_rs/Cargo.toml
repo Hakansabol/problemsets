@@ -114,4 +114,6 @@ path="src/artistic_balance_tree.rs"
 [[bin]]
 name="median_partition"
 path="src/median_partition.rs"
->>>>>>> 2187125 (some)
+[[bin]]
+name="digit_string"
+path="src/digit_string.rs"
