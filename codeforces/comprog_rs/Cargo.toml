@@ -117,3 +117,6 @@ path="src/median_partition.rs"
 [[bin]]
 name="digit_string"
 path="src/digit_string.rs"
+[[bin]]
+name="arrange_the_numbers_in_a_circle"
+path="src/arrange_the_numbers_in_a_circle.rs"
