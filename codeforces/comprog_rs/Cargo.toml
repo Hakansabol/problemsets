@@ -120,3 +120,15 @@ path="src/digit_string.rs"
 [[bin]]
 name="arrange_the_numbers_in_a_circle"
 path="src/arrange_the_numbers_in_a_circle.rs"
+[[bin]]
+name="gcd_unlucky"
+path="src/gcd_unlucky.rs"
+[[bin]]
+name="good_schedule"
+path="src/good_schedule.rs"
+[[bin]]
+name="we_be_flipping"
+path="src/we_be_flipping.rs"
+[[bin]]
+name="zilhy_and_mex_and_max"
+path="src/zilhy_and_mex_and_max.rs"
