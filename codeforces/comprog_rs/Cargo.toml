@@ -132,3 +132,15 @@ path="src/we_be_flipping.rs"
 [[bin]]
 name="zilhy_and_mex_and_max"
 path="src/zilhy_and_mex_and_max.rs"
+[[bin]]
+name="it_all_went_sideways"
+path="src/it_all_went_sideways.rs"
+[[bin]]
+name="convergence"
+path="src/convergence.rs"
+[[bin]]
+name="cake_leveling"
+path="src/cake_leveling.rs"
+[[bin]]
+name="seating_arrangement"
+path="src/seating_arrangement.rs"
