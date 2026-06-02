@@ -144,3 +144,6 @@ path="src/cake_leveling.rs"
 [[bin]]
 name="seating_arrangement"
 path="src/seating_arrangement.rs"
+[[bin]]
+name="equal_multisets"
+path="src/equal_multisets.rs"
