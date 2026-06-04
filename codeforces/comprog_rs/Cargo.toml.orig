@@ -151,6 +151,7 @@ path="src/equal_multisets.rs"
 name="chipmunk_theo_and_equality"
 path="src/chipmunk_theo_and_equality.rs"
 [[bin]]
+<<<<<<< HEAD
 name="stamina_and_tasks"
 path="src/stamina_and_tasks.rs"
 [[bin]]
@@ -162,6 +163,7 @@ path="src/new_game.rs"
 [[bin]]
 name="corner_twist"
 path="src/corner_twist.rs"
-[[bin]]
+=======
 name="array_game"
 path="src/array_game.rs"
+>>>>>>> dfa71b9 (more cf)

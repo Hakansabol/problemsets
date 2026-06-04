@@ -4,12 +4,25 @@
 mod template {
     use std::io::stdin;
     pub fn take_int() -> i32{std::io::stdin().lines().next().unwrap().unwrap().trim().parse().unwrap()}
+<<<<<<< HEAD
+    pub fn take_vector() -> Vec<u32>{std::io::stdin().lines().next().unwrap().unwrap().trim().split_whitespace().map(|x| x.parse().unwrap()).collect()}
+=======
     pub fn take_vector() -> Vec<i32>{std::io::stdin().lines().next().unwrap().unwrap().trim().split_whitespace().map(|x| x.parse().unwrap()).collect()}
+>>>>>>> dfa71b9 (more cf)
     pub fn take_string() -> Vec<char>{std::io::stdin().lines().next().unwrap().unwrap().trim().chars().collect()}
     pub fn to_string(vec:Vec<char>) -> String{return vec.iter().collect::<String>();}
 }
 
 use template::*;
+
+<<<<<<< HEAD
+fn solve() {
+    let n = take_int();
+    let v = take_vector();
+
+    // try small option
+    let ml2 = 2u32.pow(v.iter().min().unwrap().ilog2());
+=======
 fn operate(n: i32) -> i32 {
     if n % 2 == 0 { n / 2 } else { n + 1 }
 }
@@ -56,6 +69,7 @@ fn solve() {
         "{}",
         ans - matchlen as i32 * (n as i32) + std::cmp::min(onecount, n as i32 - onecount)
     );
+>>>>>>> dfa71b9 (more cf)
 }
 
 pub fn main() {
