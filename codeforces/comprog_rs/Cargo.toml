@@ -165,3 +165,9 @@ path="src/corner_twist.rs"
 [[bin]]
 name="array_game"
 path="src/array_game.rs"
+[[bin]]
+name="divisible_pairs"
+path="src/divisible_pairs.rs"
+[[bin]]
+name="find_the_different_ones"
+path="src/find_the_different_ones.rs"
