@@ -1,0 +1,36 @@
+// This template is adapted from Naman Garg's <naman.rustp@gmail.com> at https://rustp.org/basic-programs/basic-template/
+#[rustfmt::skip]
+#[allow(clippy::all, unused)]
+mod template {
+    use std::io::stdin;
+    pub fn take_int() -> i64{std::io::stdin().lines().next().unwrap().unwrap().trim().parse().unwrap()}
+    pub fn take_vector() -> Vec<i64>{std::io::stdin().lines().next().unwrap().unwrap().trim().split_whitespace().map(|x| x.parse().unwrap()).collect()}
+    pub fn take_string() -> Vec<char>{std::io::stdin().lines().next().unwrap().unwrap().trim().chars().collect()}
+    pub fn to_string(vec:Vec<char>) -> String{return vec.iter().collect::<String>();}
+}
+
+use template::*;
+
+fn solve() {
+    let n = take_int();
+
+    let mut md = n % 12;
+    let mut right = n - md;
+
+    if md == 10 {
+        if n == 10 {
+            println!("{}", -1);
+            return;
+        }
+        md += 12;
+        right -= 12;
+    }
+
+    println!("{} {}", md, right);
+}
+
+pub fn main() {
+    for _ in 0..take_int() {
+        solve();
+    }
+}
