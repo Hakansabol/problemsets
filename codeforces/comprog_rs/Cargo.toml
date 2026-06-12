@@ -252,3 +252,6 @@ path="src/strong_vertices.rs"
 [[bin]]
 name="palindrome_basis"
 path="src/palindrome_basis.rs"
+[[bin]]
+name="the_ancient_wizards_capes"
+path="src/the_ancient_wizards_capes.rs"
