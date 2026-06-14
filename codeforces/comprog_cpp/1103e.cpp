@@ -31,6 +31,7 @@ int main() {
         if (shishset[a]) {
           break;
         }
+		shishset[a] = true;
         hsma = max(hsma, a);
         hsmi = min(hsmi, a);
         if (hsma - hsmi == (j - i)) {

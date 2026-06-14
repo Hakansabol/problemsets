@@ -20,7 +20,8 @@ fn solve() {
         println!("{}", 0);
         return;
     }
-    let mut validpairs: HashSet<i32> = HashSet::new();
+    // let mut validpairs: HashSet<i32> = HashSet::new();
+    let mut validpairs: Vec<bool> = vec![false; 6003*(n+1) as usize];
 
     let mut shishset = vec![false; n as usize+1];
     let mut hsma:i32=0;
@@ -29,7 +30,7 @@ fn solve() {
         for idx in hsmi..=hsma{shishset[idx as usize]=false;};
         hsma = v[i];
         hsmi = v[i];
-        for j in i..std::cmp::min(n,i as i32+1+n/2) as usize {
+        for j in i..n as usize {
             let a = v[j];
             if shishset[a as usize] {
                 // dupe found
@@ -40,19 +41,23 @@ fn solve() {
             hsmi = std::cmp::min(hsmi, a);
             // println!("{} {} : {} {} {:?}", i,j,hsmi,hsma,shishset);
             if hsma - hsmi == (j - i)as i32{
-                validpairs.insert(hsmi*10000 +  hsma);
+                validpairs[(hsmi*6001+hsma) as usize] = true;
+                // validpairs.insert(hsmi*10000 +  hsma);
             }
         }
     // println!("{:?}", validpairs.len());
     }
     // println!("{:?}", validpairs.len());
     let mut ans = 0;
-    for &a in &validpairs {
-        let a = (a/10000,a%10000);
+    for a in 0..validpairs.len() {
+    // for &a in &validpairs {
+        if !validpairs[a] { continue; };
+        let a = (a/6001,a%6001);
         let cap = a.1 - a.0 + 1;
         let lk = (a.1 + 1, a.1 + cap);
         // println!("{:?} {:?}", a,lk);
-        if validpairs.contains(&(lk.0*10000+lk.1)) {
+        let ts = (lk.0*6001+lk.1) as usize;
+        if validpairs[ts] {
             ans = std::cmp::max(ans, cap);
         }
     }
