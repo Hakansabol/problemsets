@@ -312,3 +312,12 @@ path="src/allinone_gun.rs"
 [[bin]]
 name="kanades_perfect_multiples"
 path="src/kanades_perfect_multiples.rs"
+[[bin]]
+name="restricted_sorting"
+path="src/restricted_sorting.rs"
+[[bin]]
+name="median_splits"
+path="src/median_splits.rs"
+[[bin]]
+name="array_and_gcd"
+path="src/array_and_gcd.rs"
