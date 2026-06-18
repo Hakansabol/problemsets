@@ -321,3 +321,9 @@ path="src/median_splits.rs"
 [[bin]]
 name="array_and_gcd"
 path="src/array_and_gcd.rs"
+[[bin]]
+name="1709"
+path="src/1709.rs"
+[[bin]]
+name="encode_and_decode"
+path="src/encode_and_decode.rs"
