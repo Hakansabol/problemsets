@@ -163,6 +163,7 @@ path="src/new_game.rs"
 name="corner_twist"
 path="src/corner_twist.rs"
 [[bin]]
+<<<<<<< Updated upstream
 name="array_game"
 path="src/array_game.rs"
 [[bin]]
@@ -327,3 +328,9 @@ path="src/1709.rs"
 [[bin]]
 name="encode_and_decode"
 path="src/encode_and_decode.rs"
+[[bin]]
+name="baby_ehab_partitions_again"
+path="src/baby_ehab_partitions_again.rs"
+[[bin]]
+name="chicken_jockey"
+path="src/chicken_jockey.rs"
