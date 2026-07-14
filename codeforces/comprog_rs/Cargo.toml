@@ -163,7 +163,6 @@ path="src/new_game.rs"
 name="corner_twist"
 path="src/corner_twist.rs"
 [[bin]]
-<<<<<<< Updated upstream
 name="array_game"
 path="src/array_game.rs"
 [[bin]]
@@ -355,3 +354,24 @@ path="src/small_operations.rs"
 [[bin]]
 name="an_alternative_way"
 path="src/an_alternative_way.rs"
+[[bin]]
+name="1109a"
+path="src/1109a.rs"
+[[bin]]
+name="1109b"
+path="src/1109b.rs"
+[[bin]]
+name="1109c"
+path="src/1109c.rs"
+[[bin]]
+name="1109d"
+path="src/1109d.rs"
+[[bin]]
+name="1109e"
+path="src/1109e.rs"
+[[bin]]
+name="1109c2"
+path="src/1109c2.rs"
+[[bin]]
+name="1109f"
+path="src/1109f.rs"
